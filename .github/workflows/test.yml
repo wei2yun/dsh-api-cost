@@ -1,0 +1,25 @@
+name: test
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Parse every entry point
+        run: |
+          node --check index.js
+          node --check client.js
+          node --check lib/pricing.js
+      - name: Pricing and fold checks
+        run: |
+          node test/fold.test.mjs
+          node test/family.test.mjs
+          node test/ledger.test.mjs

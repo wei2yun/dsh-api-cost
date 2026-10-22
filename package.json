@@ -1,0 +1,69 @@
+{
+  "name": "dsh-api-cost",
+  "version": "1.0.1",
+  "description": "Shows what a DeepSeek Harness session's API token usage costs, priced from the provider-reported usage of every settled model call.",
+  "type": "module",
+  "license": "MIT",
+  "scripts": {
+    "test": "node test/fold.test.mjs && node test/family.test.mjs && node test/ledger.test.mjs"
+  },
+  "keywords": [
+    "dsh",
+    "deepseek-harness",
+    "plugin",
+    "bundle",
+    "cost",
+    "pricing",
+    "usage",
+    "tokens",
+    "dsh-plugin"
+  ],
+  "icon": "./icon.svg",
+  "exports": {
+    ".": "./index.js",
+    "./client": "./client.js",
+    "./cordis.patch.yml": "./cordis.patch.yml",
+    "./locale/*.json": "./locale/*.json",
+    "./icon": "./icon.svg",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "index.js",
+    "lib",
+    "client.js",
+    "cordis.patch.yml",
+    "locale/*.json",
+    "icon.svg",
+    "README.md",
+    "README.zh.md",
+    "CHANGELOG.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "dsh": ">=0.2.1-rc.2 <0.3.0"
+  },
+  "peerDependencies": {
+    "@deepseek-ai/schemastery": "~3.18.5"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "immediately": true,
+      "inject": [
+        "@deepseek-ai/dsh-client-ui-conversation"
+      ]
+    }
+  },
+  "author": "wei2yun",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wei2yun/dsh-api-cost.git"
+  },
+  "homepage": "https://github.com/wei2yun/dsh-api-cost#readme",
+  "bugs": {
+    "url": "https://github.com/wei2yun/dsh-api-cost/issues"
+  }
+}

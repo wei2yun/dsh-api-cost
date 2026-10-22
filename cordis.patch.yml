@@ -1,0 +1,5 @@
+# Bundle patch: one Host row. The Client half rides the same package through
+# `dsh.client` in package.json, so no second row is needed.
+- insert:
+    - id: api-cost
+      name: dsh-api-cost

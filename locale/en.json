@@ -1,0 +1,6 @@
+{
+  "meta": {
+    "title": "API Cost Meter",
+    "description": "Shows the estimated money cost of this session's API token usage under the composer, with a per-model breakdown."
+  }
+}
